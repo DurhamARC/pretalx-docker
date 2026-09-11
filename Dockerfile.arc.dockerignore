@@ -2,6 +2,8 @@
 !Dockerfile.arc
 !arc/
 !arc/**
+!conf/
+!conf/**
 
 # Keep development artifacts and tests out of the runtime image build context.
 arc/**/*.md

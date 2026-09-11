@@ -37,7 +37,7 @@ jobs:
         with:
           python-version: '3.13'
       - name: Install pinned upstream and plugin test dependencies
-        run: python -m pip install -e './pretalx[dev]' -e ./arc/plugin drf-spectacular
+        run: python -m pip install -e './pretalx[dev,postgres]' -e ./arc/plugin drf-spectacular
       - name: Run recruitment regressions and strict readiness fixtures
         env:
           PRETALX_DB_TYPE: postgresql
