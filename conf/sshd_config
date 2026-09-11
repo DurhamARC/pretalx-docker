@@ -13,3 +13,11 @@ SyslogFacility 		DAEMON
 PasswordAuthentication 	yes
 PermitEmptyPasswords 	no
 PermitRootLogin 	yes
+
+# Docker/App Service inject the app's real config (PRETALX_DB_*, etc.) into
+# PID 1's environment only. A plain SSH login otherwise starts with a bare
+# minimal environment, so commands run over SSH silently fall back to
+# whatever pretalx's settings.py defaults to instead of the real database.
+# init.sh snapshots the real environment into ~/.ssh/environment before
+# starting sshd; this tells sshd to actually load it.
+PermitUserEnvironment	yes
